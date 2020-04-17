@@ -14,3 +14,4 @@
 /.tox/
 /build-servers.yml
 /integration.html
+.idea

@@ -27,11 +27,11 @@ class EBSVolume(Volume):
         import string
 
         self.instance_id = e.instance_id
-        for letter in string.ascii_lowercase[5:]:
-            dev_path = os.path.join('/dev', 'xvd' + letter)
+        for id in range(1,5):
+            dev_path = os.path.join('/dev', 'nvme',str(id))
             if not os.path.exists(dev_path):
                 self.device_path = dev_path
-                self.ec2_device_path = os.path.join('/dev', 'sd' + letter)
+                self.ec2_device_path = os.path.join('/dev', 'nvme' + str(id) + 'n1')
                 break
 
         if self.device_path is None:
