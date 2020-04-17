@@ -28,7 +28,7 @@ class EBSVolume(Volume):
 
         self.instance_id = e.instance_id
         for letter in string.ascii_lowercase[5:]:
-            dev_path = os.path.join('/dev', 'xvd' + letter)
+            dev_path = os.path.join('/dev', 'sd' + letter)
             if not os.path.exists(dev_path):
                 self.device_path = dev_path
                 self.ec2_device_path = os.path.join('/dev', 'sd' + letter)
